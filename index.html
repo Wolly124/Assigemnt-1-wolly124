@@ -11,7 +11,7 @@
     <!-- BOOTSTRAP 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
@@ -22,68 +22,68 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
     <style>
-        h1,
-        h2 {
+        h1, h2 {
             color: darkgreen;
         }
-
         h1 {
             text-align: center;
             margin-bottom: 40px;
             text-decoration: underline;
         }
-
         .chart-container {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
         }
-
         .chart {
             flex: 1;
             min-width: 300px;
             max-width: 450px;
             margin: 20px;
         }
-
         .chart-title {
             text-align: center;
             font-size: 14px;
             margin-bottom: 10px;
             color: darkgreen;
         }
-
         .axis text {
             font-size: 12px;
         }
-
         .axis path,
         .axis line {
             fill: none;
             stroke: #000;
             shape-rendering: crispEdges;
         }
-
         .bar {
             fill: #69b3a2;
         }
-
         .line {
             fill: none;
             stroke-width: 2;
         }
-
         .area {
             fill-opacity: 0.7;
         }
-
         section {
             margin-bottom: 40px;
         }
-
         .legend {
             font-size: 14px;
             font-weight: bold;
+        }
+        .tooltip {
+            position: absolute;
+            text-align: center;
+            width: auto;
+            height: auto;
+            padding: 5px;
+            font: 12px sans-serif;
+            background: lightsteelblue;
+            border: 0px;
+            border-radius: 8px;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -91,33 +91,21 @@
 <body>
     <div class="container">
         <h1>Tracking My 2024 Spending Habits – A Data Story</h1>
-
+        
         <section id="introduction">
             <h2>Introduction: Why Track My Spending?</h2>
-            <p>As a first-generation college student balancing work and school, managing finances is crucial. Tracking
-                my spending habits allows me to better understand where my money goes, identify trends, and make
-                informed financial decisions. This project visualizes my 2024 spending patterns, highlighting key
-                categories, trends over time, and areas for improvement. By monitoring my expenses, I can ensure that
-                I’m staying on track with my financial goals, avoid unnecessary spending, and prioritize my needs as I
-                navigate the challenges of living independently. Understanding my financial habits now will help me make
-                smarter choices for the future, as I work towards achieving both short-term goals, like managing school
-                costs, and long-term ones, like saving for emergencies and investing in my future.</p>
+            <p>As a first-generation college student balancing work and school, managing finances is crucial. Tracking my spending habits allows me to better understand where my money goes, identify trends, and make informed financial decisions. This project visualizes my 2024 spending patterns, highlighting key categories, trends over time, and areas for improvement. By monitoring my expenses, I can ensure that I’m staying on track with my financial goals, avoid unnecessary spending, and prioritize my needs as I navigate the challenges of living independently. Understanding my financial habits now will help me make smarter choices for the future, as I work towards achieving both short-term goals, like managing school costs, and long-term ones, like saving for emergencies and investing in my future.</p>
         </section>
 
         <section id="data-breakdown">
             <h2>Data Breakdown: My 2024 Spending Categories</h2>
             <p>Here’s how my spending has been distributed across major categories in 2024:</p>
             <ul>
-                <li>Rent & Utilities (35%) – As a college student living independently, rent and utilities take up the
-                    largest portion of my budget.</li>
-                <li>Groceries & Food (20%) – Between meal prepping and the occasional Tim Hortons coffee (at least 3x a
-                    week), food expenses add up.</li>
-                <li>Transportation (10%) – Includes public transit, Uber rides, and occasional gas costs when borrowing
-                    a car.</li>
-                <li>Education & School Supplies (15%) – Covers tuition, textbooks, software, and other learning
-                    resources.</li>
-                <li>Entertainment & Shopping (10%) – Streaming services, clothing (including my love for Roots), and
-                    other personal expenses.</li>
+                <li>Rent & Utilities (35%) – As a college student living independently, rent and utilities take up the largest portion of my budget.</li>
+                <li>Groceries & Food (20%) – Between meal prepping and the occasional Tim Hortons coffee (at least 3x a week), food expenses add up.</li>
+                <li>Transportation (10%) – Includes public transit, Uber rides, and occasional gas costs when borrowing a car.</li>
+                <li>Education & School Supplies (15%) – Covers tuition, textbooks, software, and other learning resources.</li>
+                <li>Entertainment & Shopping (10%) – Streaming services, clothing (including my love for Roots), and other personal expenses.</li>
                 <li>Savings & Investments (5%) – Setting aside money for emergencies and future financial goals.</li>
                 <li>Miscellaneous (5%) – Unplanned expenses, gifts, and random purchases.</li>
             </ul>
@@ -135,21 +123,11 @@
 
         <section id="spending-trends">
             <h2>Spending Trends: Insights & Observations</h2>
-            <p>Tracking my savings versus my spending has highlighted the challenges of balancing both. While I aim to
-                save 10% of my income, I’ve only managed to save 5%, indicating that my spending is outpacing my savings
-                goals. My main expenses, such as rent, groceries, and transportation, consume a significant portion of
-                my budget, leaving less room for saving. By identifying areas where I can cut back, like reducing
-                impulse buys or opting for cheaper transportation, I can increase my savings and work toward meeting my
-                target. This balance between spending and saving is crucial for building financial stability and
-                achieving long-term goals.</p>
-            <p>Peak Spending Months: My spending spikes at the start of each semester (January & September) due to
-                tuition payments and school-related purchases.</p>
-            <p>Food Spending Patterns: My grocery costs fluctuate, increasing when I cook more at home and decreasing
-                when I eat out. Tim Hortons remains a consistent expense.</p>
-            <p>Savings Discipline: While I aim to save 10% of my income, I’ve only managed 5% so far, which suggests I
-                need to rework my budgeting strategy.</p>
-            <p>Transportation Costs: My transit spending has been steady, but Uber costs surge on late study nights or
-                bad weather days.</p>
+            <p>Tracking my savings versus my spending has highlighted the challenges of balancing both. While I aim to save 10% of my income, I’ve only managed to save 5%, indicating that my spending is outpacing my savings goals. My main expenses, such as rent, groceries, and transportation, consume a significant portion of my budget, leaving less room for saving. By identifying areas where I can cut back, like reducing impulse buys or opting for cheaper transportation, I can increase my savings and work toward meeting my target. This balance between spending and saving is crucial for building financial stability and achieving long-term goals.</p>
+            <p>Peak Spending Months: My spending spikes at the start of each semester (January & September) due to tuition payments and school-related purchases.</p>
+            <p>Food Spending Patterns: My grocery costs fluctuate, increasing when I cook more at home and decreasing when I eat out. Tim Hortons remains a consistent expense.</p>
+            <p>Savings Discipline: While I aim to save 10% of my income, I’ve only managed 5% so far, which suggests I need to rework my budgeting strategy.</p>
+            <p>Transportation Costs: My transit spending has been steady, but Uber costs surge on late study nights or bad weather days.</p>
             <div class="chart-container">
                 <div class="chart">
                     <div class="chart-title">Savings vs. Spendings by Month (Line Chart)</div>
@@ -160,21 +138,13 @@
 
         <section id="conclusion">
             <h2>Conclusion: What I’ve Learned & Next Steps</h2>
-            <p>Tracking my spending has revealed areas where I can cut back (like impulse shopping and Uber rides) and
-                reinforced the importance of budgeting. My next steps include:</p>
+            <p>Tracking my spending has revealed areas where I can cut back (like impulse shopping and Uber rides) and reinforced the importance of budgeting. My next steps include:</p>
             <ul>
                 <li>✔ Adjusting my savings goal to ensure I meet my future financial targets.</li>
                 <li>✔ Reducing non-essential spending to balance my budget more effectively.</li>
                 <li>✔ Exploring ways to optimize grocery and transportation expenses.</li>
             </ul>
-            <p>Tracking my spending in 2024 has been a valuable learning experience, helping me understand where my
-                money goes and where I can make adjustments to improve my budgeting and savings strategy. As a college
-                student living independently, I’ve had to navigate various financial responsibilities and challenges.
-                Managing rent, food, transportation, and other essential costs while balancing school has made me more
-                conscious of how I allocate my income. By breaking down my expenses into categories, I’ve gained a
-                clearer picture of my financial habits and how they impact my overall budget. This process has allowed
-                me to see both the areas where I’m doing well and the areas where I need to make changes to ensure a
-                more secure financial future.</p>
+            <p>Tracking my spending in 2024 has been a valuable learning experience, helping me understand where my money goes and where I can make adjustments to improve my budgeting and savings strategy. As a college student living independently, I’ve had to navigate various financial responsibilities and challenges. Managing rent, food, transportation, and other essential costs while balancing school has made me more conscious of how I allocate my income. By breaking down my expenses into categories, I’ve gained a clearer picture of my financial habits and how they impact my overall budget. This process has allowed me to see both the areas where I’m doing well and the areas where I need to make changes to ensure a more secure financial future.</p>
         </section>
     </div>
 
@@ -206,6 +176,11 @@
             { month: "December", total: 1800, savings: 180 }
         ];
 
+        // Create tooltip
+        const tooltip = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
         // Create pie chart for spending categories
         const width = 450, height = 450, margin = 40;
         const radius = Math.min(width, height) / 2 - margin;
@@ -236,7 +211,20 @@
             .attr('fill', d => color(d.data.category))
             .attr("stroke", "white")
             .style("stroke-width", "2px")
-            .style("opacity", 0.7);
+            .style("opacity", 0.7)
+            .on("mouseover", function(event, d) {
+                tooltip.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+                tooltip.html(`${d.data.category}: ${d.data.percentage}%`)
+                    .style("left", (event.pageX) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mouseout", function(d) {
+                tooltip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
 
         // Add labels to the pie chart
         svg.selectAll('text')
@@ -284,7 +272,20 @@
             .attr("y", d => yBar(d.total))
             .attr("width", xBar.bandwidth())
             .attr("height", d => height - yBar(d.total))
-            .attr("fill", "#69b3a2");
+            .attr("fill", "#69b3a2")
+            .on("mouseover", function(event, d) {
+                tooltip.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+                tooltip.html(`Month: ${d.month}<br>Total: $${d.total}`)
+                    .style("left", (event.pageX) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mouseout", function(d) {
+                tooltip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
 
         // Create line chart for savings vs. spendings by month
         const lineSvg = d3.select("#trends-chart")
@@ -333,6 +334,54 @@
             .attr("fill", "none")
             .attr("stroke", "#66c2a5")
             .attr("stroke-width", 2);
+
+        // Add points for total spendings
+        lineSvg.selectAll(".dot")
+            .data(monthlySpending)
+            .enter()
+            .append("circle")
+            .attr("class", "dot")
+            .attr("cx", d => xLine(d.month))
+            .attr("cy", d => yLine(d.total))
+            .attr("r", 5)
+            .attr("fill", "#ffab00")
+            .on("mouseover", function(event, d) {
+                tooltip.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+                tooltip.html(`Month: ${d.month}<br>Total: $${d.total}`)
+                    .style("left", (event.pageX) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mouseout", function(d) {
+                tooltip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
+
+        // Add points for savings
+        lineSvg.selectAll(".dot-savings")
+            .data(monthlySpending)
+            .enter()
+            .append("circle")
+            .attr("class", "dot-savings")
+            .attr("cx", d => xLine(d.month))
+            .attr("cy", d => yLine(d.savings))
+            .attr("r", 5)
+            .attr("fill", "#66c2a5")
+            .on("mouseover", function(event, d) {
+                tooltip.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+                tooltip.html(`Month: ${d.month}<br>Savings: $${d.savings}`)
+                    .style("left", (event.pageX) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mouseout", function(d) {
+                tooltip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
     </script>
 </body>
 
