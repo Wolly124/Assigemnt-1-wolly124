@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- METADATA GOES HERE -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tracking My 2024 Spending Habits – A Data Story</title>
+    <link href="style.css" rel="stylesheet">
+
+    <!-- BOOTSTRAP 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <style>
+        h1,
+        h2 {
+            color: darkgreen;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            text-decoration: underline;
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .chart {
+            flex: 1;
+            min-width: 300px;
+            max-width: 450px;
+            margin: 20px;
+        }
+
+        .chart-title {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: darkgreen;
+        }
+
+        .axis text {
+            font-size: 12px;
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+
+        .bar {
+            fill: #69b3a2;
+        }
+
+        .line {
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .area {
+            fill-opacity: 0.7;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        .legend {
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Tracking My 2024 Spending Habits – A Data Story</h1>
+
+        <section id="introduction">
+            <h2>Introduction: Why Track My Spending?</h2>
+            <p>As a first-generation college student balancing work and school, managing finances is crucial. Tracking
+                my spending habits allows me to better understand where my money goes, identify trends, and make
+                informed financial decisions. This project visualizes my 2024 spending patterns, highlighting key
+                categories, trends over time, and areas for improvement. By monitoring my expenses, I can ensure that
+                I’m staying on track with my financial goals, avoid unnecessary spending, and prioritize my needs as I
+                navigate the challenges of living independently. Understanding my financial habits now will help me make
+                smarter choices for the future, as I work towards achieving both short-term goals, like managing school
+                costs, and long-term ones, like saving for emergencies and investing in my future.</p>
+        </section>
+
+        <section id="data-breakdown">
+            <h2>Data Breakdown: My 2024 Spending Categories</h2>
+            <p>Here’s how my spending has been distributed across major categories in 2024:</p>
+            <ul>
+                <li>Rent & Utilities (35%) – As a college student living independently, rent and utilities take up the
+                    largest portion of my budget.</li>
+                <li>Groceries & Food (20%) – Between meal prepping and the occasional Tim Hortons coffee (at least 3x a
+                    week), food expenses add up.</li>
+                <li>Transportation (10%) – Includes public transit, Uber rides, and occasional gas costs when borrowing
+                    a car.</li>
+                <li>Education & School Supplies (15%) – Covers tuition, textbooks, software, and other learning
+                    resources.</li>
+                <li>Entertainment & Shopping (10%) – Streaming services, clothing (including my love for Roots), and
+                    other personal expenses.</li>
+                <li>Savings & Investments (5%) – Setting aside money for emergencies and future financial goals.</li>
+                <li>Miscellaneous (5%) – Unplanned expenses, gifts, and random purchases.</li>
+            </ul>
+            <div class="chart-container">
+                <div class="chart">
+                    <div class="chart-title">Spending Categories (Pie Chart)</div>
+                    <div id="category-chart"></div>
+                </div>
+                <div class="chart">
+                    <div class="chart-title">Monthly Spending (Bar Chart)</div>
+                    <div id="bar-chart"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="spending-trends">
+            <h2>Spending Trends: Insights & Observations</h2>
+            <p>Tracking my savings versus my spending has highlighted the challenges of balancing both. While I aim to
+                save 10% of my income, I’ve only managed to save 5%, indicating that my spending is outpacing my savings
+                goals. My main expenses, such as rent, groceries, and transportation, consume a significant portion of
+                my budget, leaving less room for saving. By identifying areas where I can cut back, like reducing
+                impulse buys or opting for cheaper transportation, I can increase my savings and work toward meeting my
+                target. This balance between spending and saving is crucial for building financial stability and
+                achieving long-term goals.</p>
+            <p>Peak Spending Months: My spending spikes at the start of each semester (January & September) due to
+                tuition payments and school-related purchases.</p>
+            <p>Food Spending Patterns: My grocery costs fluctuate, increasing when I cook more at home and decreasing
+                when I eat out. Tim Hortons remains a consistent expense.</p>
+            <p>Savings Discipline: While I aim to save 10% of my income, I’ve only managed 5% so far, which suggests I
+                need to rework my budgeting strategy.</p>
+            <p>Transportation Costs: My transit spending has been steady, but Uber costs surge on late study nights or
+                bad weather days.</p>
+            <div class="chart-container">
+                <div class="chart">
+                    <div class="chart-title">Savings vs. Spendings by Month (Line Chart)</div>
+                    <div id="trends-chart"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion">
+            <h2>Conclusion: What I’ve Learned & Next Steps</h2>
+            <p>Tracking my spending has revealed areas where I can cut back (like impulse shopping and Uber rides) and
+                reinforced the importance of budgeting. My next steps include:</p>
+            <ul>
+                <li>✔ Adjusting my savings goal to ensure I meet my future financial targets.</li>
+                <li>✔ Reducing non-essential spending to balance my budget more effectively.</li>
+                <li>✔ Exploring ways to optimize grocery and transportation expenses.</li>
+            </ul>
+            <p>Tracking my spending in 2024 has been a valuable learning experience, helping me understand where my
+                money goes and where I can make adjustments to improve my budgeting and savings strategy. As a college
+                student living independently, I’ve had to navigate various financial responsibilities and challenges.
+                Managing rent, food, transportation, and other essential costs while balancing school has made me more
+                conscious of how I allocate my income. By breaking down my expenses into categories, I’ve gained a
+                clearer picture of my financial habits and how they impact my overall budget. This process has allowed
+                me to see both the areas where I’m doing well and the areas where I need to make changes to ensure a
+                more secure financial future.</p>
+        </section>
+    </div>
+
+    <script>
+        // Data for spending categories
+        const spendingCategories = [
+            { category: "Rent & Utilities", percentage: 35 },
+            { category: "Groceries & Food", percentage: 20 },
+            { category: "Transportation", percentage: 10 },
+            { category: "Education & School Supplies", percentage: 15 },
+            { category: "Entertainment & Shopping", percentage: 10 },
+            { category: "Savings & Investments", percentage: 5 },
+            { category: "Miscellaneous", percentage: 5 }
+        ];
+
+        // Data for monthly spending trends
+        const monthlySpending = [
+            { month: "January", total: 1800, savings: 200 },
+            { month: "February", total: 1600, savings: 150 },
+            { month: "March", total: 1750, savings: 180 },
+            { month: "April", total: 1700, savings: 300 },
+            { month: "May", total: 1550, savings: 160 },
+            { month: "June", total: 1500, savings: 150 },
+            { month: "July", total: 1450, savings: 140 },
+            { month: "August", total: 1600, savings: 340 },
+            { month: "September", total: 1900, savings: 200 },
+            { month: "October", total: 1700, savings: 170 },
+            { month: "November", total: 1650, savings: 200 },
+            { month: "December", total: 1800, savings: 180 }
+        ];
+
+        // Create pie chart for spending categories
+        const width = 450, height = 450, margin = 40;
+        const radius = Math.min(width, height) / 2 - margin;
+
+        const svg = d3.select("#category-chart")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", `translate(${width / 2},${height / 2})`);
+
+        const color = d3.scaleOrdinal()
+            .domain(spendingCategories.map(d => d.category))
+            .range(["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494"]);
+
+        const pie = d3.pie()
+            .value(d => d.percentage);
+
+        const data_ready = pie(spendingCategories);
+
+        svg.selectAll('path')
+            .data(data_ready)
+            .join('path')
+            .attr('d', d3.arc()
+                .innerRadius(radius / 2)
+                .outerRadius(radius)
+            )
+            .attr('fill', d => color(d.data.category))
+            .attr("stroke", "white")
+            .style("stroke-width", "2px")
+            .style("opacity", 0.7);
+
+        // Add labels to the pie chart
+        svg.selectAll('text')
+            .data(data_ready)
+            .join('text')
+            .text(d => `${d.data.category}: ${d.data.percentage}%`)
+            .attr("transform", d => `translate(${d3.arc().innerRadius(radius / 2).outerRadius(radius).centroid(d)})`)
+            .style("text-anchor", "middle")
+            .style("font-size", "12px")
+            .style("fill", "black");
+
+        // Create bar chart for monthly spending
+        const barSvg = d3.select("#bar-chart")
+            .append("svg")
+            .attr("width", width + margin * 2)
+            .attr("height", height + margin * 2)
+            .append("g")
+            .attr("transform", `translate(${margin},${margin})`);
+
+        const xBar = d3.scaleBand()
+            .domain(monthlySpending.map(d => d.month))
+            .range([0, width])
+            .padding(0.1);
+
+        barSvg.append("g")
+            .attr("transform", `translate(0,${height})`)
+            .call(d3.axisBottom(xBar))
+            .selectAll("text")
+            .attr("transform", "translate(-10,0)rotate(-45)")
+            .style("text-anchor", "end");
+
+        const yBar = d3.scaleLinear()
+            .domain([0, d3.max(monthlySpending, d => d.total)])
+            .range([height, 0]);
+
+        barSvg.append("g")
+            .call(d3.axisLeft(yBar));
+
+        barSvg.selectAll(".bar")
+            .data(monthlySpending)
+            .enter()
+            .append("rect")
+            .attr("class", "bar")
+            .attr("x", d => xBar(d.month))
+            .attr("y", d => yBar(d.total))
+            .attr("width", xBar.bandwidth())
+            .attr("height", d => height - yBar(d.total))
+            .attr("fill", "#69b3a2");
+
+        // Create line chart for savings vs. spendings by month
+        const lineSvg = d3.select("#trends-chart")
+            .append("svg")
+            .attr("width", width + margin * 2)
+            .attr("height", height + margin * 2)
+            .append("g")
+            .attr("transform", `translate(${margin},${margin})`);
+
+        const xLine = d3.scaleBand()
+            .domain(monthlySpending.map(d => d.month))
+            .range([0, width])
+            .padding(0.1);
+
+        lineSvg.append("g")
+            .attr("transform", `translate(0,${height})`)
+            .call(d3.axisBottom(xLine));
+
+        const yLine = d3.scaleLinear()
+            .domain([0, d3.max(monthlySpending, d => Math.max(d.total, d.savings))])
+            .range([height, 0]);
+
+        lineSvg.append("g")
+            .call(d3.axisLeft(yLine));
+
+        // Line for total spendings
+        lineSvg.append("path")
+            .datum(monthlySpending)
+            .attr("class", "line")
+            .attr("d", d3.line()
+                .x(d => xLine(d.month))
+                .y(d => yLine(d.total))
+            )
+            .attr("fill", "none")
+            .attr("stroke", "#ffab00")
+            .attr("stroke-width", 2);
+
+        // Line for savings
+        lineSvg.append("path")
+            .datum(monthlySpending)
+            .attr("class", "line")
+            .attr("d", d3.line()
+                .x(d => xLine(d.month))
+                .y(d => yLine(d.savings))
+            )
+            .attr("fill", "none")
+            .attr("stroke", "#66c2a5")
+            .attr("stroke-width", 2);
+    </script>
+</body>
+
+</html>
